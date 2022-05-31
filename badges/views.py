@@ -6,7 +6,7 @@ from .serializers import ExperienceSerializer,SkillSerializer,InterestBadgeSeria
 
 
 class SkillView(viewsets.ViewSet):
-    def list(self, request ):
+    def list(self, request):
         queryset = Skill.objects.filter(is_active=True)
         serializer = SkillSerializer(queryset, many=True)
         return Response(serializer.data)
@@ -31,7 +31,7 @@ class InterestBadgeView(viewsets.ViewSet):
             queryset_badge = InterestBadge.objects.filter(is_active=1, group=group)
             serializer = InterestBadgeSerializer(queryset_badge, many=1)
             return Response(serializer.data ,status=status.HTTP_200_OK)
-        return Response({'Not found data!'} ,status=status.HTTP_404_NOT_FOUND)
+        return Response({'message':'Not found data!'} ,status=status.HTTP_404_NOT_FOUND)
 
 
 class InterestGroupView(viewsets.ViewSet):
