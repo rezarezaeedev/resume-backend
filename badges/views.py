@@ -9,7 +9,7 @@ class SkillView(viewsets.ViewSet):
     def list(self, request):
         queryset = Skill.objects.filter(is_active=True)
         serializer = SkillSerializer(queryset, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, )
 
 
 class ExperienceView(viewsets.ViewSet):
