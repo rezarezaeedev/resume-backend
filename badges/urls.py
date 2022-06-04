@@ -6,8 +6,8 @@ router = DefaultRouter()
 
 router.register(r'skills', SkillView, basename='skills')
 router.register(r'experiences', ExperienceView, basename='experiences')
-router.register(r'interestgroup', InterestGroupView, basename='interestgroup')
-router.register(r'interestbadge', InterestBadgeView, basename='interestbadge')
+router.register(r'interestgroups', InterestGroupView, basename='interestgroups')
+router.register(r'interestbadges', InterestBadgeView, basename='interestbadges')
 
 urlpatterns = [
 
