@@ -6,10 +6,22 @@ from .serializers import ExperienceSerializer,SkillSerializer,InterestBadgeSeria
 
 
 class SkillView(viewsets.ViewSet):
+    lookup_field='badge'
     def list(self, request):
         queryset = Skill.objects.filter(is_active=True)
         serializer = SkillSerializer(queryset, many=True)
-        return Response(serializer.data, )
+        return Response(serializer.data, status=status.HTTP_200_OK )
+
+    def retrieve(self, request, badge):
+        if badge=='skills':
+            familiarity_flag=False
+        elif badge=='familiarities':
+            familiarity_flag=False
+        else:
+            return Response({'message':f'Not found any data for {badge} type skill. please retrieve by "skills" and "familiarities".'}, status=status.HTTP_404_NOT_FOUND)
+        queryset = Skill.objects.filter(is_active=True, is_familiarity=familiarity_flag)
+        serializer = SkillSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ExperienceView(viewsets.ViewSet):
