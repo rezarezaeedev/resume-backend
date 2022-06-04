@@ -16,7 +16,7 @@ class SkillView(viewsets.ViewSet):
         if badge=='skills':
             familiarity_flag=False
         elif badge=='familiarities':
-            familiarity_flag=False
+            familiarity_flag=True
         else:
             return Response({'message':f'Not found any data for {badge} type skill. please retrieve by "skills" and "familiarities".'}, status=status.HTTP_404_NOT_FOUND)
         queryset = Skill.objects.filter(is_active=True, is_familiarity=familiarity_flag)
