@@ -10,7 +10,7 @@ class PersonalInfoViews(viewsets.ViewSet):
         queryset = PersonalInfo.objects.filter(is_active=1)
         if queryset.exists():
             queryset=queryset.last()
-            serializer = PersonalInfoSerializer(queryset)
+            serializer = PersonalInfoSerializer(queryset, context={'request':request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response({'message':'Not found data!'}, status=status.HTTP_404_NOT_FOUND)
