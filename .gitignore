@@ -1,2 +1,6 @@
 db.sqlite3
 .idea
+.venv
+venv
+resume_backend/.env
+env

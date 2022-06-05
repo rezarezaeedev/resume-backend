@@ -12,21 +12,24 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#0z+ea7n^87&i+zl$^^@9eq$0ssgau)ulh^cr_v&+el9&1$fj^'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 1
 
 ALLOWED_HOSTS=['*']
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+    os.getenv('domain'),
+]
 
 # Application definition
 
@@ -108,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
- 
+
 
 
 # Internationalization
