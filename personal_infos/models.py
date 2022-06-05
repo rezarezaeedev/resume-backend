@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-def image_upload_path( ):
+def image_upload_path():
     result = f'profiles'
     return result
 
@@ -19,5 +19,10 @@ class PersonalInfo(models.Model):
     github = models.CharField(max_length=20)
     instagram = models.CharField(max_length=20)
 
+    is_active=models.BooleanField(default=0)
+
+
+class SiteSettings(models.Model):
     copyright_text = models.CharField(max_length=100)
+    builded_text = models.CharField(max_length=100)
     is_active=models.BooleanField(default=0)
