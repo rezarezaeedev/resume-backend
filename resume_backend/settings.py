@@ -24,11 +24,12 @@ load_dotenv()
 SECRET_KEY = 'y^9z+d)84b0ro8ref1*5wg&5mh-#vk50$u_f6^h#63c7pcx%z6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 1
+DEBUG = 0
 
 ALLOWED_HOSTS=['*']
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'https://rezarezaeedev.github.io',
 ]
 
 # Application definition
