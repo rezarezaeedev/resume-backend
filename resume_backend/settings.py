@@ -21,14 +21,14 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'y^9z+d)84b0ro8ref1*5wg&5mh-#vk50$u_f6^h#63c7pcx%z6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 0
+DEBUG = 1
 
 ALLOWED_HOSTS=['*']
 CORS_ALLOWED_ORIGINS = [
-    os.getenv('domain'),
+    'http://localhost:3000'
 ]
 
 # Application definition
@@ -87,14 +87,10 @@ WSGI_APPLICATION = 'resume_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db', 
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

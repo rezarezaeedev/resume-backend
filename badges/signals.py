@@ -10,3 +10,5 @@ def set_order(sender,instance, *args, **kwargs):
         queryset = klass.objects.all().order_by('order').last()
         if queryset!=None and queryset!=instance:
             instance.order=queryset.order+1
+        else:
+            instance.order=1
