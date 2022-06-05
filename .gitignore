@@ -4,3 +4,4 @@ db.sqlite3
 venv
 resume_backend/.env
 env
+__pycache__/
